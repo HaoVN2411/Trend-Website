@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>AssignmentSWD.API.Service</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AssignmentSWD.Core\4. AssignmentSWD.Core.csproj" />
+    <ProjectReference Include="..\AssignmentSWD.Infrastructure\3. AssignmentSWD.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
