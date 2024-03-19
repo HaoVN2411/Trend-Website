@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AssignmentSWD.Infrastructure.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -15,6 +16,11 @@ namespace AssignmentSWD.Infrastructure.Interfaces
         Task<bool> Add(T entity);
         Task<bool> Remove(T entity);
         Task<bool> Update(T entity);
-        IEnumerable<T> Where(Expression<Func<T, bool>> predicate);
+        public IEnumerable<T> Get(
+            Expression<Func<T, bool>> filter = null,
+        Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+            string includeProperties = "",
+            int? pageIndex = null, // Optional parameter for pagination (page number)
+            int? pageSize = null);
     }
 }

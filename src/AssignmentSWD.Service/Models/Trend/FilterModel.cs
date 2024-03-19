@@ -11,8 +11,9 @@ namespace AssignmentSWD.API.Service.Models.Trend
     public class FilterModel
     {
         public string? RegionName { get; set; }
-        public PeriodEnum Period { get; set; } = PeriodEnum.All;
-        public string? Category { get; set; }
-        public string? Platform { get; set; }
+        public DateTimeOffset? StartDate { get; set; }
+        public DateTimeOffset? EndDate {  get; set; } 
+        public string? FieldName { get; set; }
+        public string? PlatformName { get; set; }
     }
 }

@@ -13,7 +13,6 @@ namespace AssignmentSWD.Infrastructure.Repository
         public IPlatformRepository Platforms { get; private set; }
         public ISearchRepository Searchs { get; private set; }
         public ITrendRepository Trends { get; private set; }
-        public ITypeRepository Types { get; private set; }
         public IRegionRepository Regions { get; private set; }
         public IUserRepository Users { get; private set; }
 
@@ -26,7 +25,6 @@ namespace AssignmentSWD.Infrastructure.Repository
             Platforms = new PlatformRepository(_context, _logger);
             Trends = new TrendRepository(_context, _logger);
             Searchs = new SearchRepository(_context, _logger);
-            Types = new TypeRepository(_context, _logger);
             Regions = new RegionRepository(_context, _logger);
             Users = new UserRepository(_context, _logger);
         }

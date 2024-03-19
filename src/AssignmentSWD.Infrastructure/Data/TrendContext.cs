@@ -19,7 +19,6 @@ namespace AssignmentSWD.Infrastructure.Data
         public DbSet<FieldEntity> fieldEntities { get; set; }
         public DbSet<PlatformEntity> platformEntities { get; set; }
         public DbSet<SearchEntity> searchEntities { get; set; }
-        public DbSet<TypeEntity> typeEntities { get; set; }
         public DbSet<UserEntity> userEntities { get; set; }
         #endregion
 

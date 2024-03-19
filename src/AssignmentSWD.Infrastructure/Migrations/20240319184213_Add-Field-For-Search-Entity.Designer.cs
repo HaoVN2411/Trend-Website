@@ -4,6 +4,7 @@ using AssignmentSWD.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssignmentSWD.Infrastructure.Migrations
 {
     [DbContext(typeof(TrendContext))]
-    partial class TrendContextModelSnapshot : ModelSnapshot
+    [Migration("20240319184213_Add-Field-For-Search-Entity")]
+    partial class AddFieldForSearchEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,6 +109,12 @@ namespace AssignmentSWD.Infrastructure.Migrations
 
                     b.Property<DateTimeOffset?>("LastUpdatedTime")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<int?>("month")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("year")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

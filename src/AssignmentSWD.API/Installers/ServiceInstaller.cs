@@ -21,10 +21,11 @@ namespace AssignmentSWD.API.Installers
             });
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<ITrendService, TrendService>();
-            services.AddTransient<ITypeService, TypeService>();
             services.AddTransient<IPlatformService, PlatformService>();
             services.AddTransient<IFieldService, FieldService>();
             services.AddTransient<IRegionService, RegionService>();
+            services.AddTransient<IDashboardService, DashboardService>();
+
         }
     }
 }

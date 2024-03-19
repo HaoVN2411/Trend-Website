@@ -8,13 +8,11 @@ namespace AssignmentSWD.Infrastructure.Entities
         public string? Title { get; set; }
         public string? Content { get; set; }
         public string? PlatformId { get; set; }
-        public string? TypeId { get; set; }
         public string? FieldId { get; set; }
         public string? RegionId { get; set; }
         [ForeignKey(nameof(PlatformId))]
         public PlatformEntity? Platform { get; set; }
-        [ForeignKey(nameof(TypeId))]
-        public TypeEntity? Type { get; set; }
+
         [ForeignKey(nameof(FieldId))]
         public FieldEntity? Field { get; set; }
         [ForeignKey(nameof(RegionId))]

@@ -11,6 +11,6 @@ namespace AssignmentSWD.Infrastructure.Entities
     public class SearchEntity : Entity
     {
         public string? Keyword { get; set; }
-        public int Count { get; set; }
+        public int? Count { get; set; }
     }
 }

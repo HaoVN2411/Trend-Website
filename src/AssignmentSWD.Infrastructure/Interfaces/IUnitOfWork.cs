@@ -12,7 +12,6 @@ namespace AssignmentSWD.Infrastructure.Interfaces
         IPlatformRepository Platforms { get; }
         ISearchRepository Searchs { get; }
         ITrendRepository Trends { get; }
-        ITypeRepository Types { get; }
         IRegionRepository Regions { get; }
         IUserRepository Users { get; }
         Task<int> CompletedAsync();

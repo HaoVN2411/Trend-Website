@@ -1,7 +1,6 @@
 ﻿using AssignmentSWD.API.Service.Models.Field;
 using AssignmentSWD.API.Service.Models.Platform;
 using AssignmentSWD.API.Service.Models.Region;
-using AssignmentSWD.API.Service.Models.Type;
 using AssignmentSWD.Infrastructure.Entities;
 using AutoMapper;
 using HaoVN.Template_3_layers.Service.Models.Trend;
@@ -22,7 +21,6 @@ namespace AssignmentSWD.Service.AutoMapperProfile
 
             //Trend
             CreateMap<TrendEntity, CreateTrendModel>().ReverseMap();
-            CreateMap<TypeEntity, CreateTypeModel>().ReverseMap();
             CreateMap<FieldEntity, CreateFieldModel>().ReverseMap();
             CreateMap<PlatformEntity, CreatePlatformModel>().ReverseMap();
             CreateMap<RegionEntity, CreateRegionModel>().ReverseMap();

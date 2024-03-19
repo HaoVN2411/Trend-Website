@@ -102,14 +102,16 @@ namespace AssignmentSWD.API.Service.Service
             return top10Trends;
         }
 
-        //public async Task<IEnumerable<TrendEntity>> Filter(FilterModel filter)
-        //{
-        //    var filteredTrends = _unitOfWork.Trends.Where(t =>
-        //        (filter.Region == null || t.RegionId == filter.Region.Id) &&
-        //        (filter.Period == PeriodEnum.All || (t.CreatedTime >= GetStartDate(filter.Period)))
-        //    );
-        //    return filteredTrends.ToList();
-        //}
+        public async Task<IEnumerable<TrendEntity>> Filter(FilterModel filter)
+        {
+            var filteredTrends = _unitOfWork.Trends.Get(_ => 
+            (_.Region.RegionName.Equals(filter.RegionName) || filter.RegionName == null)
+            && (_.CreatedTime >= filter.StartDate || filter.StartDate == null) 
+            && (_.CreatedTime <= filter.EndDate || filter.EndDate == null) 
+            && (filter.FieldName.Equals(_.Field.FieldName) || filter.FieldName == null) 
+            && (filter.PlatformName.Equals(_.Field.FieldName) || filter.PlatformName == null));
+            return filteredTrends.ToList();
+        }
 
         //private DateTime GetStartDate(PeriodEnum period)
         //{
