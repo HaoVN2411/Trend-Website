@@ -17,7 +17,7 @@ namespace AssignmentSWD.API.Service.Interfaces
         public Task<IEnumerable<TrendEntity>> SuggestTrend(string keyword);
         public Task<TrendEntity> SearchTrend(string keyword);
         public Task<IEnumerable<TrendEntity>> GetTop10();
-        public Task<IEnumerable<TrendEntity>> GetTop10ByMonth(DateTime date);
+        public Task<IEnumerable<TrendEntity>> GetTop10ByMonth();
         public Task<IEnumerable<TrendEntity>> Filter(FilterModel filter);
     }
 }

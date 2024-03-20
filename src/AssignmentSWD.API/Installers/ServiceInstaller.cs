@@ -25,6 +25,7 @@ namespace AssignmentSWD.API.Installers
             services.AddTransient<IFieldService, FieldService>();
             services.AddTransient<IRegionService, RegionService>();
             services.AddTransient<IDashboardService, DashboardService>();
+            services.AddTransient<ISearchService, SearchService>();
 
         }
     }

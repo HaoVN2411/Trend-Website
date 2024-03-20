@@ -21,6 +21,7 @@ namespace AssignmentSWD.Infrastructure.Interfaces
         Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             string includeProperties = "",
             int? pageIndex = null, // Optional parameter for pagination (page number)
-            int? pageSize = null);
+            int? pageSize = null,
+            int? takeCount = null);
     }
 }

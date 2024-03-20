@@ -65,7 +65,8 @@ namespace HaoVN.Teamplate_3_layers.Infrastructure.Repository
         Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             string includeProperties = "",
             int? pageIndex = null, // Optional parameter for pagination (page number)
-            int? pageSize = null)  // Optional parameter for pagination (number of records per page)
+            int? pageSize = null,
+            int? takeCount = null)  // Optional parameter for pagination (number of records per page)
         {
             IQueryable<T> query = dbSet;
 
@@ -93,6 +94,11 @@ namespace HaoVN.Teamplate_3_layers.Infrastructure.Repository
                 int validPageSize = pageSize.Value > 0 ? pageSize.Value : 10; // Assuming a default pageSize of 10 if an invalid value is passed
 
                 query = query.Skip(validPageIndex * validPageSize).Take(validPageSize);
+            }
+
+            if (takeCount.HasValue && takeCount.Value > 0)
+            {
+                query = query.Take(takeCount.Value);
             }
 
             return query.ToList();

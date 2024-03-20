@@ -11,12 +11,12 @@ namespace AssignmentSWD.API.Controllers
     public class DashboardController : ControllerBase
     {
         private readonly IDashboardService _dashboardService;
-        private readonly TrendService _trendService;
+        private readonly ISearchService _searchService;
 
-        public DashboardController(IDashboardService dashboardService, TrendService trendService)
+        public DashboardController(IDashboardService dashboardService, ISearchService searchService)
         {
             _dashboardService = dashboardService;
-            _trendService = trendService;
+            _searchService = searchService;
         }
 
         [HttpGet("/Get-Data-Chart-In-Year-By-Keyword")]
@@ -26,10 +26,12 @@ namespace AssignmentSWD.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("/Get-Top-10-Trend-By-Month")]
-        public async Task<IActionResult> GetTop10TrendByMonth(DateTime date)
+        [HttpGet("/Get-Top-10-Keyword-This-Month")]
+        public IActionResult GetTop10KeyWorkInMonth(string? keyWordSearch, int? year)
         {
-            return Ok(await _trendService.GetTop10ByMonth(date));
+            var result = _searchService.GetTop10SearchKeywork();
+            return Ok(result);
         }
+
     }
 }

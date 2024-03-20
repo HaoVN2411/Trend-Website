@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AssignmentSWD.API.Service.Models.Search;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace AssignmentSWD.API.Service.Interfaces
 {
     public interface ISearchService
     {
-
+        public List<ResponseSearchModel> GetTop10SearchKeywork();
     }
 }

@@ -81,12 +81,11 @@ namespace AssignmentSWD.API.Service.Service
             return top10Trends;
         }
 
-        public async Task<IEnumerable<TrendEntity>> GetTop10ByMonth(DateTime date)
+        public async Task<IEnumerable<TrendEntity>> GetTop10ByMonth()
         {
-            var startDate = new DateTime(date.Year, date.Month, 1);
-            var endDate = startDate.AddMonths(1).AddDays(-1);
+            var nowTime = DateTime.Now;
 
-            var top10Searches = _unitOfWork.Searchs.Find(search => search.CreatedTime >= startDate && search.CreatedTime <= endDate);
+            var top10Searches = _unitOfWork.Searchs.Get(search => search.CreatedTime.Value.Month == nowTime.Month);
 
             top10Searches = top10Searches.OrderByDescending(s => s.Count).Take(10).ToList();
 
@@ -110,7 +109,8 @@ namespace AssignmentSWD.API.Service.Service
             && (_.CreatedTime >= filter.StartDate || filter.StartDate == null) 
             && (_.CreatedTime <= filter.EndDate || filter.EndDate == null) 
             && (filter.FieldName.Equals(_.Field.FieldName) || filter.FieldName == null) 
-            && (filter.PlatformName.Equals(_.Field.FieldName) || filter.PlatformName == null));
+            && (filter.PlatformName.Equals(_.Field.FieldName) || filter.PlatformName == null)
+            , x => x.OrderByDescending(_ => _.CreatedTime));
             return filteredTrends.ToList();
         }
 
