@@ -10,12 +10,20 @@ namespace AssignmentSWD.Infrastructure.Entities
         public string? PlatformId { get; set; }
         public string? FieldId { get; set; }
         public string? RegionId { get; set; }
+        public string? AuthorId { get; set; }
+
+        [ForeignKey(nameof(AuthorId))]
+        public UserEntity? User { get; set; }
+
         [ForeignKey(nameof(PlatformId))]
         public PlatformEntity? Platform { get; set; }
 
         [ForeignKey(nameof(FieldId))]
         public FieldEntity? Field { get; set; }
+
         [ForeignKey(nameof(RegionId))]
         public RegionEntity? Region { get; set; }
+        public virtual ICollection<TrendImage>? TrendImages { get; set; }
+
     }
 }

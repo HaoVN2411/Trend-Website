@@ -11,5 +11,6 @@ namespace AssignmentSWD.Infrastructure.Entities
     public class PlatformEntity : Entity
     {
         public string? PlatformName { get; set; }
+        public virtual ICollection<TrendEntity>? TrendEntities { get; set; }
     }
 }

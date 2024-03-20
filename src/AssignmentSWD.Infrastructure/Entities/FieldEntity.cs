@@ -11,5 +11,6 @@ namespace AssignmentSWD.Infrastructure.Entities
     public class FieldEntity : Entity
     {
         public string? FieldName { get; set; }
+        public virtual ICollection<TrendEntity>? TrendEntities { get; set; }
     }
 }

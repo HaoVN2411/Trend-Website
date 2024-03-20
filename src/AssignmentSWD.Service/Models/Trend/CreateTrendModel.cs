@@ -13,7 +13,6 @@ namespace HaoVN.Template_3_layers.Service.Models.Trend
         public string? Title { get; set; }
         public string? Content { get; set; }
         public string? PlatformId { get; set; }
-        public string? TypeId { get; set; }
         public string? FieldId { get; set; }
         public string? RegionId { get; set; }
     }

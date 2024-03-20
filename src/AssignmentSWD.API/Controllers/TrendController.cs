@@ -70,11 +70,11 @@ namespace AssignmentSWD.API.Controllers
             return Ok(await _trendService.GetTop10());
         }
 
-        [HttpGet("/Get-Top-10-Trend-By-Month")]
-        public async Task<IActionResult> GetTop10TrendByMonth(DateTime date)
-        {
-            return Ok(await _trendService.GetTop10ByMonth(date));
-        }
+        //[HttpGet("/Get-Top-10-Trend-By-Month")]
+        //public async Task<IActionResult> GetTop10TrendByMonth(DateTime date)
+        //{
+        //    return Ok(await _trendService.GetTop10ByMonth(date));
+        //}
 
         [HttpGet("/Filter")]
         public async Task<IActionResult> FilterTrend([FromQuery] FilterModel filter)

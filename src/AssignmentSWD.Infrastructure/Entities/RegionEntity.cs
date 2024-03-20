@@ -11,5 +11,7 @@ namespace AssignmentSWD.Infrastructure.Entities
     public class RegionEntity : Entity
     {
         public string? RegionName { get; set; }
+        public virtual ICollection<TrendEntity>? TrendEntities { get; set; }
+
     }
 }

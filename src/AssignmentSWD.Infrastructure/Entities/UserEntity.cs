@@ -16,6 +16,7 @@ namespace AssignmentSWD.Infrastructure.Entities
         public RoleEnum Role { get; set; }
         public string Email { get; set; }
         public string ValidateEmailKey { get; set; }
+        public virtual ICollection<TrendEntity>? Trends { get; set; }
 
     }
 }

@@ -105,7 +105,8 @@ namespace AssignmentSWD.API.Service.Service
         public async Task<IEnumerable<TrendEntity>> Filter(FilterModel filter)
         {
             var filteredTrends = _unitOfWork.Trends.Get(_ => 
-            (_.Region.RegionName.Equals(filter.RegionName) || filter.RegionName == null)
+            (_.Title.Contains(filter.Keyword) || filter.Keyword == null || _.Content.Contains(filter.Keyword))
+            && (_.Region.RegionName.Equals(filter.RegionName) || filter.RegionName == null)
             && (_.CreatedTime >= filter.StartDate || filter.StartDate == null) 
             && (_.CreatedTime <= filter.EndDate || filter.EndDate == null) 
             && (filter.FieldName.Equals(_.Field.FieldName) || filter.FieldName == null) 
